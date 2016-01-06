@@ -15,6 +15,7 @@ angular.module('sidemenu', ['ngMaterial'])
             controller: ['$scope', '$interpolate','$templateCache', function ($scope, $interpolate,$templateCache) {
                 var opts = mdSideMenuSections.options;
 
+                $scope.options = opts;
                 !$scope.selectedNodes && ($scope.selectedNodes = {});
                 $scope.showChildren = (node)=> {
                     if ($scope.selectedNodes.hasOwnProperty(node[opts.key])) {

@@ -15,6 +15,7 @@ angular.module('sidemenu', ['ngMaterial'])
             controller: ['$scope', '$interpolate','$templateCache', function ($scope, $interpolate,$templateCache) {
                 var opts = mdSideMenuSections.options;
 
+                $scope.options = opts;
                 !$scope.selectedNodes && ($scope.selectedNodes = {});
                 $scope.showChildren = (node)=> {
                     if ($scope.selectedNodes.hasOwnProperty(node[opts.key])) {
@@ -80,7 +81,7 @@ angular.module('sidemenu')
 
         return directive;
     }]);
-angular.module("sidemenu").run(["$templateCache", function($templateCache) {$templateCache.put("sidemenu.html","<ul ng-if=\"node.{{opts.children}}.length\">\n    <li ng-if=\"node.menuShow\"\n        ng-repeat=\"node in node.{{opts.children}} | filter:options.filterExpression:filterComparator {{options.orderBy}}\">\n        <div side-menu-content-transclude ng-click=\"showChildren(node)\"></div>\n        <md-divider ng-if=\"node.depth==1\"></md-divider>\n        <side-menu-child ng-if=\"isShowChildren(node)\" class=\"sidemenu-child am-fade-and-scale\"></side-menu-child>\n    </li>\n</ul>\n<md-divider ng-if=\"!$last && node.depth>1\"></md-divider>");
+angular.module("sidemenu").run(["$templateCache", function($templateCache) {$templateCache.put("sidemenu.html","\n\n\n\n<ul ng-if=\"node.{{opts.children}}.length\">\n    <li ng-if=\"node.menuShow\"\n        ng-repeat=\"node in node.{{opts.children}} | filter:options.filterExpression:options.filterComparator {{options.orderBy}}\">\n        <div side-menu-content-transclude ng-click=\"showChildren(node)\"></div>\n        <md-divider ng-if=\"node.depth==1\"></md-divider>\n        <side-menu-child ng-if=\"isShowChildren(node)\" class=\"sidemenu-child am-fade-and-scale\"></side-menu-child>\n    </li>\n</ul>\n<md-divider ng-if=\"!$last && node.depth>1\"></md-divider>");
 $templateCache.put("sidemenu_search.html","<md-input-container md-no-float\n                    flex\n                    class=\"md-float-icon md-no-errors\">\n    <ng-md-icon icon=\"search\"></ng-md-icon>\n    <input placeholder=\"搜索菜单\" ng-model=\"options.filterExpression\">\n</md-input-container>");}]);
 
 angular.module('sidemenu')
@@ -156,7 +157,7 @@ angular.module('sidemenu')
         var directive = {
             restrict: 'EA',
             template: $templateCache.get('sidemenu_search.html'),
-            link: ($scope, $element, $attrs, $ctrl)=> {
+            controller: ($scope)=> {
                 $scope.options = mdSideMenuSections.options;
             }
         };
