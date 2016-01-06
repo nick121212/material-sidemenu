@@ -1,0 +1,9 @@
+<ul ng-if="node.{{opts.children}}.length">
+    <li ng-if="node.menuShow"
+        ng-repeat="node in node.{{opts.children}} | filter:options.filterExpression:filterComparator {{options.orderBy}}">
+        <div side-menu-content-transclude ng-click="showChildren(node)"></div>
+        <md-divider ng-if="node.depth==1"></md-divider>
+        <side-menu-child ng-if="isShowChildren(node)" class="sidemenu-child am-fade-and-scale"></side-menu-child>
+    </li>
+</ul>
+<md-divider ng-if="!$last && node.depth>1"></md-divider>

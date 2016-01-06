@@ -1,0 +1,24 @@
+{
+  "name": "material-sidemenu",
+  "authors": [
+    "NICK <nick.feng@patchallin.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.4.8",
+    "angular-material": "~1.0.1",
+    "gulp": "~3.9.0",
+    "angular-material-icons": "~0.6.0"
+  }
+}
