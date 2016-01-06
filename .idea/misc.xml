@@ -38,11 +38,4 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
-  <component name="SvnConfiguration" SSL_PROTOCOLS="all">
-    <configuration>$USER_HOME$/.subversion</configuration>
-    <option name="sshConnectionType" value="PASSWORD" />
-    <option name="sshExecutablePath" value="ssh" />
-    <option name="sshUserName" value="nick" />
-    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="true" />
-  </component>
 </project>
