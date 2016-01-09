@@ -17,7 +17,7 @@ angular.module('sidemenu', ['ngMaterial'])
 
                 $scope.options = opts;
                 !$scope.selectedNodes && ($scope.selectedNodes = {});
-                $scope.showChildren = (node)=> {
+                $scope.showChildren = function(node) {
                     if ($scope.selectedNodes.hasOwnProperty(node[opts.key])) {
                         delete $scope.selectedNodes[node[opts.key]];
                     } else {
@@ -71,7 +71,7 @@ angular.module('sidemenu')
         var directive = {
             restrict: 'EA',
             require: '^sideMenu',
-            link: ($scope, $element, $attrs, $ctrl)=> {
+            link: function($scope, $element, $attrs, $ctrl) {
                 $scope['showSearchBar'] = false;
                 $ctrl['template']($scope, function (clone) {
                     $element.html('').append(clone);
@@ -142,7 +142,7 @@ angular.module('sidemenu')
 angular.module('sidemenu')
     .directive('sideMenuContentTransclude', [function () {
         var directive = {
-            link: ($scope, $element, $attrs, $ctrl)=> {
+            link: function($scope, $element, $attrs, $ctrl) {
                 $scope['$sideMenuTransclude']($scope, function (clone) {
                     $element.empty();
                     $element.append(clone);

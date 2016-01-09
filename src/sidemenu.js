@@ -17,7 +17,7 @@ angular.module('sidemenu', ['ngMaterial'])
 
                 $scope.options = opts;
                 !$scope.selectedNodes && ($scope.selectedNodes = {});
-                $scope.showChildren = (node)=> {
+                $scope.showChildren = function(node) {
                     if ($scope.selectedNodes.hasOwnProperty(node[opts.key])) {
                         delete $scope.selectedNodes[node[opts.key]];
                     } else {
