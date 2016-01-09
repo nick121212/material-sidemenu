@@ -3,7 +3,7 @@ angular.module('sidemenu')
         var directive = {
             restrict: 'EA',
             template: $templateCache.get('sidemenu_search.html'),
-            controller: ($scope)=> {
+            controller: function($scope) {
                 $scope.options = mdSideMenuSections.options;
             }
         };

@@ -39,8 +39,8 @@ angular.module('sidemenu', ['ngMaterial'])
                     opts: opts
                 }));
             }],
-            compile: ($ele, $attrs, childTranscludeFn)=> {
-                return ($scope, $element, attrs, $ctrl)=> {
+            compile: function($ele, $attrs, childTranscludeFn) {
+                return function($scope, $element, attrs, $ctrl) {
                     $scope.$watch("modules", function updateNodeOnRootScope(newValue) {
                         var opts = mdSideMenuSections.options;
                         if (angular.isArray(newValue)) {
@@ -157,7 +157,7 @@ angular.module('sidemenu')
         var directive = {
             restrict: 'EA',
             template: $templateCache.get('sidemenu_search.html'),
-            controller: ($scope)=> {
+            controller: function($scope) {
                 $scope.options = mdSideMenuSections.options;
             }
         };
