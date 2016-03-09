@@ -30,7 +30,7 @@ angular.module('sidemenu', ['ngMaterial'])
                     return $scope.selectedNodes[node[opts.key]];
                 };
                 $scope.isLeaf = function (node) {
-                    return node.rgt - node.lft == 1 || node[opts.children].length == 0;
+                    return node.rgt - node.lft == 1 || !node[opts.children] || node[opts.children].length == 0;
                 };
                 $scope.isSelected = function (node) {
                     return !!mdSideMenuSections.selectedNode && mdSideMenuSections.selectedNode[opts.key] == node[opts.key];
